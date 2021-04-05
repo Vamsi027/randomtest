@@ -3,3 +3,6 @@ and merging this to original branch
 
 
 thank you
+
+
+trying out git commands
