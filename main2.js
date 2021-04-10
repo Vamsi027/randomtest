@@ -29,6 +29,7 @@ const emailInput=document.querySelector('#email')
 const message=document.querySelector('.msg')
 const users=document.querySelector('#users')
 
+
 myform.addEventListener('submit',onSubmit);
 function onSubmit(e)
 {
@@ -41,7 +42,17 @@ function onSubmit(e)
     }
     else
     {
+        localStorage.setItem('name',nameInput.value)
+        localStorage.setItem('email',emailInput.value)
         console.log(nameInput.value);
-        console.log(emailInput.value)
+        console.log(emailInput.value);
     }
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    var name=window.localStorage.getItem('name')
+    var email=window.localStorage.getItem('email')
+    message.innerHTML=`<h1 color='green'>${name} and ${email} name and email from local storage</h1>`;
+    
+});
