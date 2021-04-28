@@ -27,7 +27,6 @@ const myform=document.querySelector('#my-form')
 const nameInput=document.querySelector('#name')
 const emailInput=document.querySelector('#email')
 const message=document.querySelector('.msg')
-const users=document.querySelector('#users')
 
 
 myform.addEventListener('submit',onSubmit);
@@ -47,11 +46,15 @@ function onSubmit(e)
         }
         
         var old=JSON.parse(localStorage.getItem('userDetails'));
+        var li=new Set(old)
+        if(li.has(nameInput.value))
+        {
+            alert('name alrady exists')
+        }
+        else{
         old.push(nameInput.value)
         localStorage.setItem('userDetails',JSON.stringify(old));
-    
-        console.log(nameInput.value);
-        console.log(emailInput.value);
+        }
     }
 }
 
@@ -62,17 +65,4 @@ function onSubmit(e)
     message.innerHTML=`<h1 color='green'>${name} and ${email} name and email from local storage</h1>`;
     
 });*/
-const another=document.querySelector('#another')
-another.addEventListener('submit',onSubmited);
-function onSubmited(e)
-{
-    e.preventDefault();
-    var li=localStorage.getItem('userDetails').split("[,]")
-    const pi=document.createElement('li')
-    pi.appendChild(document.createTextNode(li[0]))
-    
-    if(users.lastElementChild==null)
-        users.appendChild(pi)
-    if(users.lastElementChild.textContent!=li)
-        users.appendChild(pi)
-}
+
