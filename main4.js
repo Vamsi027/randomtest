@@ -20,13 +20,24 @@ formElement.addEventListener('submit',onSubmit);
 //         .then(res => showOutput(res))
 //         .catch(err => console.error(err));
 // }
+// function onSubmit(e)
+// {
+//     e.preventDefault();   
+    
+//     axios({
+//         method:'get',
+//         url:'https://crudcrud.com/api/8bad69f475834e5fbc80c7de2635c5f4/unicorns'
+//         })
+//         .then(res => showOutput(res))
+//         .catch(err => console.error(err));
+// }
 function onSubmit(e)
 {
     e.preventDefault();   
     
     axios({
-        method:'get',
-        url:'https://crudcrud.com/api/8bad69f475834e5fbc80c7de2635c5f4/unicorns'
+        method:'delete',
+        url:'https://crudcrud.com/api/8bad69f475834e5fbc80c7de2635c5f4/unicorns/userId'
         })
         .then(res => showOutput(res))
         .catch(err => console.error(err));
